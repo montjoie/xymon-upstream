@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: test ${{ matrix.os.name }}
-        uses: cross-platform-actions/action@v0.13.0
+        uses: cross-platform-actions/action@v0.32.0
         with:
           operating_system: ${{ matrix.os.name }}
           architecture: ${{ matrix.os.architecture }}
@@ -70,7 +70,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: test ${{ matrix.os.name }}
-        uses: cross-platform-actions/action@v0.13.0
+        uses: cross-platform-actions/action@v0.32.0
         with:
           operating_system: ${{ matrix.os.name }}
           architecture: ${{ matrix.os.architecture }}
@@ -109,7 +109,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: test ${{ matrix.os.name }}
-        uses: cross-platform-actions/action@v0.13.0
+        uses: cross-platform-actions/action@v0.32.0
         with:
           operating_system: ${{ matrix.os.name }}
           architecture: ${{ matrix.os.architecture }}
@@ -152,7 +152,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: test ${{ matrix.os.name }}
-        uses: cross-platform-actions/action@v0.13.0
+        uses: cross-platform-actions/action@v0.32.0
         with:
           operating_system: ${{ matrix.os.name }}
           architecture: ${{ matrix.os.architecture }}
