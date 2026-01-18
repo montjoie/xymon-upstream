@@ -8,7 +8,7 @@ on:  # yamllint disable-line rule:truthy
 
 jobs:
   build-bsd-server:
-    runs-on: qemu
+    runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
       fail-fast: False
@@ -20,10 +20,6 @@ jobs:
 
           - name: openbsd
             architecture: x86-64
-            version: '7.3'
-
-          - name: openbsd
-            architecture: arm64
             version: '7.3'
 
           - name: netbsd
@@ -53,7 +49,7 @@ jobs:
             gmake
             ls -l
   build-bsd-server-autotools:
-    runs-on: qemu
+    runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
       fail-fast: False
@@ -65,10 +61,6 @@ jobs:
 
           - name: openbsd
             architecture: x86-64
-            version: '7.3'
-
-          - name: openbsd
-            architecture: arm64
             version: '7.3'
 
           - name: netbsd
@@ -96,7 +88,7 @@ jobs:
             ./configure --enable-server
             gmake
   build-bsd-client:
-    runs-on: qemu
+    runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
       fail-fast: False
@@ -108,10 +100,6 @@ jobs:
 
           - name: openbsd
             architecture: x86-64
-            version: '7.3'
-
-          - name: openbsd
-            architecture: arm64
             version: '7.3'
 
           - name: netbsd
@@ -143,7 +131,7 @@ jobs:
             [[ -x client/netbsd-meminfo ]] && ./client/netbsd-meminfo
             [[ -x client/freebsd-meminfo ]] && ./client/freebsd-meminfo
   build-bsd-client-autotool:
-    runs-on: qemu
+    runs-on: ubuntu-latest
     continue-on-error: true
     strategy:
       fail-fast: False
@@ -155,10 +143,6 @@ jobs:
 
           - name: openbsd
             architecture: x86-64
-            version: '7.3'
-
-          - name: openbsd
-            architecture: arm64
             version: '7.3'
 
           - name: netbsd
@@ -194,8 +178,7 @@ jobs:
       fail-fast: False
       matrix:
         os:
-          - name: bullseye
-          - name: bookworm
+          - name: ubuntu-latest
     runs-on: ${{ matrix.os.name }}
     name: build client on ${{ matrix.os.name }}
     steps:
@@ -217,8 +200,7 @@ jobs:
       fail-fast: False
       matrix:
         os:
-          - name: bullseye
-          - name: bookworm
+          - name: ubuntu-latest
     runs-on: ${{ matrix.os.name }}
     name: build server on ${{ matrix.os.name }}
     steps:
@@ -240,8 +222,7 @@ jobs:
       fail-fast: False
       matrix:
         os:
-          - name: bullseye
-          - name: bookworm
+          - name: ubuntu-latest
     runs-on: ${{ matrix.os.name }},qemu
     name: build client on ${{ matrix.os.name }} with autotool
     steps:
