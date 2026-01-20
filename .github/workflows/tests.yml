@@ -135,3 +135,22 @@ jobs:
         run: sudo apt-get -y install libssl-dev librrd-dev libc-ares-dev
       - name: build with any optional deps
         run: make
+  build-debian-server:
+    strategy:
+      fail-fast: False
+      matrix:
+        os:
+          - name: bullseye
+          - name: bookworm
+          - name: trixie
+    runs-on: ubuntu-latest
+    name: build client on ${{ matrix.os.name }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build docker
+        run: |
+          pwd
+          ls -l
+          cd docker
+          docker compose build ${{ matrix.os.name }}
+          docker compose up --abort-on-container-exit ${{ matrix.os.name }}
