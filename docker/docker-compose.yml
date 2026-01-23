@@ -18,3 +18,9 @@ services:
       dockerfile: docker/debian/Dockerfile
       args:
         OS: debian:trixie
+  rockylinux10:
+    build:
+      context: ..
+      dockerfile: docker/rpm/Dockerfile
+      args:
+        OS: rockylinux:10
